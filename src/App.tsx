@@ -65,7 +65,6 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
       label: "GitHub",
     },
     { icon: <EmailIcon />, href: "mailto:avenkann@gmu.edu", label: "Email" },
-    { icon: <PhoneIcon />, href: "tel:+15712457014", label: "Phone" },
   ];
 
   const drawerItems = [
