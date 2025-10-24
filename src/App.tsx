@@ -390,9 +390,9 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
             SAP ABAP Developer | 2021 – 2023
           </Typography>
           <Typography variant="body1">
-            Worked on SAP ABAP development, enhancements, ALVs, SmartForms, 
-            BADIs, and cross-functional modules (MM, SD, HR, FI). Delivered 
-            customized solutions improving business efficiency.
+            Developed and maintained SAP applications using ABAP, SmartForms,
+            and ALV. Collaborated with cross-functional teams to deliver
+            enterprise solutions that improved business processes.
           </Typography>
         </TimelineContent>
       </TimelineItem>
@@ -411,8 +411,12 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
              | 2023 – 2025
           </Typography>
           <Typography variant="body1">
-            Facilitator & Graduate Teaching Assistant
+            Student Data Associate
           </Typography>
+          <Typography variant="body2">
+            Managed and analyzed student data to support university operations
+            and reporting. Assisted in data integrity and process improvements.
+          </Typography> 
         </TimelineContent>
       </TimelineItem>
 
@@ -431,6 +435,10 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
           <Typography variant="body1">
             Research Assistant
           </Typography>
+          <Typography variant="body2">
+            Assisting in research projects focused on human interaction with computer systems,
+            exploring innovative solutions to enhance user experience and accessibility.
+          </Typography>
         </TimelineContent>
       </TimelineItem>
     </Timeline>
@@ -441,7 +449,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
 <Box
   id="skills"
   sx={{
-    minHeight: "20vh",
+    minHeight: "40vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -484,7 +492,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
 <Box
   id="projects"
   sx={{
-    minHeight: "80vh",
+    minHeight: "40vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -506,7 +514,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
       maxWidth: 1000,
     }}
   >
-    <Card sx={{ p: 3, width: 300, boxShadow: 3 }}>
+    <Card sx={{ p: 3, width: 400, boxShadow: 3 }}>
       <Typography variant="h6" fontWeight={600}>
         TechMate – Digital Helper for Seniors
       </Typography>
@@ -524,17 +532,57 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
       </Button>
     </Card>
 
-    <Card sx={{ p: 3, width: 300, boxShadow: 3 }}>
+    <Card sx={{ p: 3, width: 400, boxShadow: 3 }}>
       <Typography variant="h6" fontWeight={600}>
         Game Analytics Dashboard 
       </Typography>
+      <Typography variant="body2" color="text.secondary" paragraph>
+        Built 
+      </Typography>
+      <Button
+        variant="outlined"
+        href="https://github.com/athiksha/techmate"
+        target="_blank"
+      >
+        View Code
+      </Button>
+    </Card>
+    <Card sx={{ p: 3, width: 400, boxShadow: 3 }}>
+      <Typography variant="h6" fontWeight={600}>
+        Bank Churn Prediction Model
+      </Typography>
+      <Typography variant="body2" color="text.secondary" paragraph>
+        Built 
+      </Typography>
+      <Button
+        variant="outlined"
+        href="https://github.com/athiksha/techmate"
+        target="_blank"
+      >
+        View Code
+      </Button>
+    </Card>
+    <Card sx={{ p: 3, width: 400, boxShadow: 3 }}>
+      <Typography variant="h6" fontWeight={600}>
+        My Portfolio Website
+      </Typography>
+      <Typography variant="body2" color="text.secondary" paragraph>
+        Built 
+      </Typography>
+      <Button
+        variant="outlined"
+        href="https://github.com/athiksha/techmate"
+        target="_blank"
+      >
+        View Code
+      </Button>
     </Card>
   </Box>
 </Box>
 
 
 {/* Education Section */}
-<Box id="education" sx={{ minHeight: "80vh", py: 6, px: 2 }}>
+<Box id="education" sx={{ minHeight: "60vh", py: 6, px: 2 }}>
   <Typography
     variant="h4"
     fontWeight={700}
@@ -565,7 +613,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
       <Card sx={{ p: 3, textAlign: "center", boxShadow: 3 }}>
         <ComputerIcon sx={{ fontSize: 50, color: "secondary.main", mb: 2 }} />
         <Typography variant="h6" fontWeight={600}>
-          Bachelor’s in Computer Science & Engineering
+          Bachelor’s in Computer Science
         </Typography>
         <Typography variant="body2" color="text.secondary">
           St. Martin’s Engineering College
