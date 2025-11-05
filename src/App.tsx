@@ -541,7 +541,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
       </Typography>
       <Button
         variant="outlined"
-        href="https://github.com/athiksha/techmate"
+        href="https://github.com/athiksha/PowerBI-Game-Analytics"
         target="_blank"
       >
         View Code
@@ -556,7 +556,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
       </Typography>
       <Button
         variant="outlined"
-        href="https://github.com/athiksha/techmate"
+        href="https://github.com/athiksha/Bank_Churn_Prediction"
         target="_blank"
       >
         View Code
@@ -571,7 +571,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
       </Typography>
       <Button
         variant="outlined"
-        href="https://github.com/athiksha/techmate"
+        href="https://github.com/athiksha/my_portfolio"
         target="_blank"
       >
         View Code
