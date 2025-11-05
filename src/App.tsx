@@ -11,7 +11,6 @@ import IconButton from "@mui/material/IconButton";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -137,7 +136,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
       <AppBar
         position="fixed"
         sx={{
-          backgroundColor: "#E3F2FD",
+          backgroundColor: "#007acc15",
           color: "black",
         }}
       >
@@ -215,7 +214,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
           flexGrow: 1,
           //p: { xs: 2, md: 3 },
           mt: 0,
-          backgroundColor: "#F5F9FF",
+          backgroundColor: "#E3F2FD",
         }}
       >
         {/* Home Section */}
@@ -227,7 +226,7 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
     alignItems: "center",
     justifyContent: "center",
     px: 4,
-    background: "#F5F9FF",
+    background: "#E3F2FD",
   }}
 >
   <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
@@ -449,50 +448,87 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
 <Box
   id="skills"
   sx={{
-    minHeight: "40vh",
+    minHeight: "100vh",
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     px: 2,
-    py: 6,
   }}
 >
-  <Typography variant="h4" fontWeight={700} gutterBottom>
-    Skills
-  </Typography>
-
-  <Stack
-    direction="row"
-    flexWrap="wrap"
-    gap={2}
-    justifyContent="center"
-    sx={{ maxWidth: 800 }}
-  >
+  <Card sx={{ maxWidth: 900, p: 3, borderRadius: 3, boxShadow: 4 }}>
+    <Typography variant="h4" fontWeight={700} gutterBottom align="center">
+      Skills
+    </Typography>
+    <Box sx={{ width: '100%' }}>
     {[
-      "SAP ABAP",
-      "ALV / SmartForms",
-      "BADI & Enhancements",
-      "OData / RFC / BAPI",
-      "SAP RAP",
-      "SAP BTP",
-      "Fiori Elements",
-      "REST APIs",
-      "SQL",
-      "Python",
-      "Power BI",
-      "AWS (S3, EC2)"
-    ].map((skill) => (
-      <Chip key={skill} label={skill} color="primary" variant="outlined" />
+      {
+        category: "SAP Technologies",
+        skills: [
+          "SAP ABAP",
+          "SAP RAP",
+          "SAP Fiori",
+          "SAP BTP",
+          "BADI & Enhancements",
+          "OData / RFC / BAPI",
+          "ALV Reports",
+          "SmartForms",
+          "SAP UI5",
+          "SAP HANA"
+        ],
+        color: "#0fbbf1"
+      },
+      {
+        category: "Programming Languages",
+        skills: ["ABAP", "Python", "TypeScript", "JavaScript", "SQL"],
+        color: "#007acc"
+      },
+      {
+        category: "Full Stack Development",
+        skills: ["React", "Node.js", "REST APIs", "Material-UI", "Bootstrap", "HTML/CSS"],
+        color: "#61dafb"
+      },
+      {
+        category: "Data & Analytics",
+        skills: ["Power BI", "Pandas", "NumPy", "Scikit-learn", "Data Visualization"],
+        color: "#4dabcf"
+      },
+      {
+        category: "Cloud & DevOps",
+        skills: ["AWS (S3, EC2)", "Git", "Firebase", "CI/CD"],
+        color: "#ff9900"
+      }
+    ].map((category) => (
+      <Box key={category.category} sx={{ mb: 4 }}>
+        <Typography variant="h6" sx={{ mb: 2, color: category.color, fontWeight: 600 }}>
+          {category.category}
+        </Typography>
+        <Stack direction="row" flexWrap="wrap" gap={1}>
+          {category.skills.map((skill) => (
+            <Chip
+              key={skill}
+              label={skill}
+              sx={{
+                bgcolor: `${category.color}15`,
+                border: `1px solid ${category.color}`,
+                color: 'text.primary',
+                '&:hover': {
+                  bgcolor: `${category.color}30`,
+                }
+              }}
+            />
+          ))}
+        </Stack>
+      </Box>
     ))}
-  </Stack>
+    </Box>
+  </Card>
 </Box>
 
 {/* Projects Section */}
 <Box
   id="projects"
   sx={{
-    minHeight: "40vh",
+    minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -501,81 +537,419 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
     py: 6,
   }}
 >
-  <Typography variant="h4" fontWeight={700} gutterBottom>
-    Projects
+  <Typography 
+    variant="h4" 
+    fontWeight={700} 
+    gutterBottom
+    sx={{
+      mb: 4,
+      position: 'relative',
+      '&:after': {
+        content: '""',
+        position: 'absolute',
+        bottom: '-10px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '60px',
+        height: '4px',
+        backgroundColor: '#61dafb',
+        borderRadius: '2px'
+      }
+    }}
+  >
+    Featured Projects
   </Typography>
 
   <Box
     sx={{
       display: "flex",
       flexWrap: "wrap",
-      gap: 3,
+      gap: 4,
       justifyContent: "center",
-      maxWidth: 1000,
+      maxWidth: 1200,
     }}
   >
-    <Card sx={{ p: 3, width: 400, boxShadow: 3 }}>
-      <Typography variant="h6" fontWeight={600}>
-        TechMate – Digital Helper for Seniors
-      </Typography>
-      <Typography variant="body2" color="text.secondary" paragraph>
-        Built a full-stack app (React + Spring Boot + OpenAI API) to guide 
-        seniors through using technology, with AI step-by-step assistance 
-        and family support integration.
-      </Typography>
-      <Button
-        variant="outlined"
-        href="https://github.com/athiksha/techmate"
-        target="_blank"
+    <Card
+      sx={{
+        width: 380,
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        transition: "all 0.3s ease-in-out",
+        "&:hover": {
+          transform: "translateY(-8px)",
+          boxShadow: "0 12px 20px rgba(97, 218, 251, 0.2)",
+        },
+        borderRadius: 2,
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+      <Box
+        sx={{
+          height: 200,
+          overflow: 'hidden',
+          position: 'relative',
+          backgroundColor: '#1a1a1a',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
       >
-        View Code
-      </Button>
+        <Typography
+          variant="h3"
+          sx={{
+            color: 'rgba(97, 218, 251, 0.1)',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+          }}
+        >
+          T
+        </Typography>
+      </Box>
+      <Box sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <Typography 
+          variant="h6" 
+          sx={{
+            fontWeight: 600,
+            color: '#61dafb',
+            mb: 2
+          }}
+        >
+          TechMate – Digital Helper for Seniors
+        </Typography>
+        <Typography 
+          variant="body2" 
+          color="text.secondary" 
+          paragraph
+          sx={{ 
+            mb: 3,
+            lineHeight: 1.6 
+          }}
+        >
+          Voice-first AI assistant designed to help seniors navigate modern technology with confidence.
+          Features real-time GPT-4 powered assistance, interactive tutorials, and family support integration.
+        </Typography>
+        <Stack 
+          direction="row" 
+          spacing={1} 
+          sx={{ 
+            mt: 'auto',
+            mb: 3, 
+            flexWrap: 'wrap', 
+            gap: 1 
+          }}
+        >
+          <Chip label="React" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="TypeScript" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Flask" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="GPT-4" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Firebase" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Bootstrap" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+        </Stack>
+        <Button
+          variant="outlined"
+          href="https://github.com/athiksha/techmate"
+          target="_blank"
+          sx={{
+            color: '#61dafb',
+            borderColor: '#61dafb',
+            '&:hover': {
+              borderColor: '#61dafb',
+              backgroundColor: 'rgba(97, 218, 251, 0.1)',
+            }
+          }}
+        >
+          View Code
+        </Button>
+      </Box>
     </Card>
 
-    <Card sx={{ p: 3, width: 400, boxShadow: 3 }}>
-      <Typography variant="h6" fontWeight={600}>
-        Game Analytics Dashboard 
-      </Typography>
-      <Typography variant="body2" color="text.secondary" paragraph>
-        Built 
-      </Typography>
-      <Button
-        variant="outlined"
-        href="https://github.com/athiksha/PowerBI-Game-Analytics"
-        target="_blank"
+    <Card
+      sx={{
+        width: 380,
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        transition: "all 0.3s ease-in-out",
+        "&:hover": {
+          transform: "translateY(-8px)",
+          boxShadow: "0 12px 20px rgba(97, 218, 251, 0.2)",
+        },
+        borderRadius: 2,
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+      <Box
+        sx={{
+          height: 200,
+          overflow: 'hidden',
+          position: 'relative',
+          backgroundColor: '#1a1a1a',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
       >
-        View Code
-      </Button>
+        <Typography
+          variant="h3"
+          sx={{
+            color: 'rgba(97, 218, 251, 0.1)',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+          }}
+        >
+          G
+        </Typography>
+      </Box>
+      <Box sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <Typography 
+          variant="h6" 
+          sx={{
+            fontWeight: 600,
+            color: '#61dafb',
+            mb: 2
+          }}
+        >
+          Game Analytics Dashboard 
+        </Typography>
+        <Typography 
+          variant="body2" 
+          color="text.secondary" 
+          paragraph
+          sx={{ 
+            mb: 3,
+            lineHeight: 1.6 
+          }}
+        >
+          Comprehensive Power BI dashboard analyzing gaming platform performance and user engagement.
+          Delivered actionable insights leading to 60% growth in monthly active users.
+        </Typography>
+        <Stack 
+          direction="row" 
+          spacing={1} 
+          sx={{ 
+            mt: 'auto',
+            mb: 3, 
+            flexWrap: 'wrap', 
+            gap: 1 
+          }}
+        >
+          <Chip label="Power BI" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="DAX" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Data Analytics" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="SQL" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+        </Stack>
+        <Button
+          variant="outlined"
+          href="https://github.com/athiksha/PowerBI-Game-Analytics"
+          target="_blank"
+          sx={{
+            color: '#61dafb',
+            borderColor: '#61dafb',
+            '&:hover': {
+              borderColor: '#61dafb',
+              backgroundColor: 'rgba(97, 218, 251, 0.1)',
+            }
+          }}
+        >
+          View Code
+        </Button>
+      </Box>
     </Card>
-    <Card sx={{ p: 3, width: 400, boxShadow: 3 }}>
-      <Typography variant="h6" fontWeight={600}>
-        Bank Churn Prediction Model
-      </Typography>
-      <Typography variant="body2" color="text.secondary" paragraph>
-        Built 
-      </Typography>
-      <Button
-        variant="outlined"
-        href="https://github.com/athiksha/Bank_Churn_Prediction"
-        target="_blank"
+    <Card
+      sx={{
+        width: 380,
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        transition: "all 0.3s ease-in-out",
+        "&:hover": {
+          transform: "translateY(-8px)",
+          boxShadow: "0 12px 20px rgba(97, 218, 251, 0.2)",
+        },
+        borderRadius: 2,
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+      <Box
+        sx={{
+          height: 200,
+          overflow: 'hidden',
+          position: 'relative',
+          backgroundColor: '#1a1a1a',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
       >
-        View Code
-      </Button>
+        <Typography
+          variant="h3"
+          sx={{
+            color: 'rgba(97, 218, 251, 0.1)',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+          }}
+        >
+          B
+        </Typography>
+      </Box>
+      <Box sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <Typography 
+          variant="h6" 
+          sx={{
+            fontWeight: 600,
+            color: '#61dafb',
+            mb: 2
+          }}
+        >
+          Bank Churn Prediction Model
+        </Typography>
+        <Typography 
+          variant="body2" 
+          color="text.secondary" 
+          paragraph
+          sx={{ 
+            mb: 3,
+            lineHeight: 1.6 
+          }}
+        >
+          Machine learning model achieving 85% accuracy in predicting customer churn for financial institutions.
+          Implemented advanced feature selection and optimization techniques for actionable customer retention insights.
+        </Typography>
+        <Stack 
+          direction="row" 
+          spacing={1} 
+          sx={{ 
+            mt: 'auto',
+            mb: 3, 
+            flexWrap: 'wrap', 
+            gap: 1 
+          }}
+        >
+          <Chip label="Python" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Scikit-learn" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Pandas" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="NumPy" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Matplotlib" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Seaborn" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+        </Stack>
+        <Button
+          variant="outlined"
+          href="https://github.com/athiksha/Bank_Churn_Prediction"
+          target="_blank"
+          sx={{
+            color: '#61dafb',
+            borderColor: '#61dafb',
+            '&:hover': {
+              borderColor: '#61dafb',
+              backgroundColor: 'rgba(97, 218, 251, 0.1)',
+            }
+          }}
+        >
+          View Code
+        </Button>
+      </Box>
     </Card>
-    <Card sx={{ p: 3, width: 400, boxShadow: 3 }}>
-      <Typography variant="h6" fontWeight={600}>
-        My Portfolio Website
-      </Typography>
-      <Typography variant="body2" color="text.secondary" paragraph>
-        Built 
-      </Typography>
-      <Button
-        variant="outlined"
-        href="https://github.com/athiksha/my_portfolio"
-        target="_blank"
+    <Card
+      sx={{
+        width: 380,
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        transition: "all 0.3s ease-in-out",
+        "&:hover": {
+          transform: "translateY(-8px)",
+          boxShadow: "0 12px 20px rgba(97, 218, 251, 0.2)",
+        },
+        borderRadius: 2,
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+      <Box
+        sx={{
+          height: 200,
+          overflow: 'hidden',
+          position: 'relative',
+          backgroundColor: '#1a1a1a',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
       >
-        View Code
-      </Button>
+        <Typography
+          variant="h3"
+          sx={{
+            color: 'rgba(97, 218, 251, 0.1)',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+          }}
+        >
+          P
+        </Typography>
+      </Box>
+      <Box sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <Typography 
+          variant="h6" 
+          sx={{
+            fontWeight: 600,
+            color: '#61dafb',
+            mb: 2
+          }}
+        >
+          My Portfolio Website
+        </Typography>
+        <Typography 
+          variant="body2" 
+          color="text.secondary" 
+          paragraph
+          sx={{ 
+            mb: 3,
+            lineHeight: 1.6 
+          }}
+        >
+          Modern, responsive portfolio website showcasing professional experience and technical projects.
+          Features clean component architecture, interactive sections, and custom Material-UI theming.
+        </Typography>
+        <Stack 
+          direction="row" 
+          spacing={1} 
+          sx={{ 
+            mt: 'auto',
+            mb: 3, 
+            flexWrap: 'wrap', 
+            gap: 1 
+          }}
+        >
+          <Chip label="React" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="TypeScript" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Material-UI" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="CSS" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+          <Chip label="Responsive Design" size="small" sx={{ bgcolor: '#61dafb15', border: '1px solid #61dafb', color: 'text.primary' }} />
+        </Stack>
+        <Button
+          variant="outlined"
+          href="https://github.com/athiksha/my_portfolio"
+          target="_blank"
+          sx={{
+            color: '#61dafb',
+            borderColor: '#61dafb',
+            '&:hover': {
+              borderColor: '#61dafb',
+              backgroundColor: 'rgba(97, 218, 251, 0.1)',
+            }
+          }}
+        >
+          View Code
+        </Button>
+      </Box>
     </Card>
   </Box>
 </Box>
@@ -627,37 +1001,174 @@ export default function PortfolioLayout({ brand = "Athiksha Venkannagari" }: Por
 </Box>
 
 {/* Contact Section */}
-<Box id="contact" sx={{ textAlign: "center" }}>
-  <Typography variant="h4" fontWeight={700} gutterBottom>
-    Contact Me
+<Box 
+  id="contact" 
+  sx={{ 
+    minHeight: "60vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    py: 6,
+    px: 2,
+    background: '#E3F2FD',
+  }}
+>
+  <Typography 
+    variant="h4" 
+    fontWeight={700} 
+    gutterBottom 
+    sx={{
+      mb: 4,
+      position: 'relative',
+      '&:after': {
+        content: '""',
+        position: 'absolute',
+        bottom: '-10px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '60px',
+        height: '4px',
+        backgroundColor: '#61dafb',
+        borderRadius: '2px'
+      }
+    }}
+  >
+    Let's Connect!
   </Typography>
-  <Card sx={{ maxWidth: 500, mx: "auto", p: 3, boxShadow: 3 }}>
-    <Stack spacing={2}>
-      <Button
-        startIcon={<EmailIcon />}
-        variant="outlined"
-        href="mailto:avenkann@gmu.edu"
-      >
-        avenkann@gmu.edu
-      </Button>
-      <Button
-        startIcon={<LinkedInIcon />}
-        variant="outlined"
-        href="https://linkedin.com/in/athiksha"
-        target="_blank"
-      >
-        LinkedIn
-      </Button>
-      <Button
-        startIcon={<GitHubIcon />}
-        variant="outlined"
-        href="https://github.com/athiksha"
-        target="_blank"
-      >
-        GitHub
-      </Button>
-    </Stack>
-  </Card>
+
+  <Box 
+    sx={{ 
+      display: 'flex', 
+      flexWrap: 'wrap', 
+      gap: 3, 
+      justifyContent: 'center',
+      maxWidth: 1000,
+    }}
+  >
+    <Card 
+      sx={{ 
+        p: 3, 
+        width: 280,
+        borderRadius: 3,
+        transition: 'all 0.3s ease',
+        cursor: 'pointer',
+        '&:hover': {
+          transform: 'translateY(-10px)',
+          boxShadow: 6,
+          bgcolor: '#E3F2FD'
+        }
+      }}
+      component="a"
+      href="mailto:avenkann@gmu.edu"
+    >
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+        <EmailIcon sx={{ fontSize: 40, color: '#61dafb' }} />
+        <Typography variant="h6" fontWeight={600}>
+          Email
+        </Typography>
+        <Typography variant="body2" color="text.secondary" align="center">
+          avenkann@gmu.edu
+        </Typography>
+        <Chip 
+          label="Send Email" 
+          sx={{ 
+            mt: 1,
+            bgcolor: '#61dafb15',
+            border: '1px solid #61dafb',
+            color: 'text.primary'
+          }} 
+        />
+      </Box>
+    </Card>
+
+    <Card 
+      sx={{ 
+        p: 3, 
+        width: 280,
+        borderRadius: 3,
+        transition: 'all 0.3s ease',
+        cursor: 'pointer',
+        '&:hover': {
+          transform: 'translateY(-10px)',
+          boxShadow: 6,
+          bgcolor: '#E3F2FD'
+        }
+      }}
+      component="a"
+      href="https://linkedin.com/in/athiksha"
+      target="_blank"
+    >
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+        <LinkedInIcon sx={{ fontSize: 40, color: '#61dafb' }} />
+        <Typography variant="h6" fontWeight={600}>
+          LinkedIn
+        </Typography>
+        <Typography variant="body2" color="text.secondary" align="center">
+          let's connect on LinkedIn
+        </Typography>
+        <Chip 
+          label="View Profile" 
+          sx={{ 
+            mt: 1,
+            bgcolor: '#61dafb15',
+            border: '1px solid #61dafb',
+            color: 'text.primary'
+          }} 
+        />
+      </Box>
+    </Card>
+
+    <Card 
+      sx={{ 
+        p: 3, 
+        width: 280,
+        borderRadius: 3,
+        transition: 'all 0.3s ease',
+        cursor: 'pointer',
+        '&:hover': {
+          transform: 'translateY(-10px)',
+          boxShadow: 6,
+          bgcolor: '#E3F2FD'
+        }
+      }}
+      component="a"
+      href="https://github.com/athiksha"
+      target="_blank"
+    >
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+        <GitHubIcon sx={{ fontSize: 40, color: '#61dafb' }} />
+        <Typography variant="h6" fontWeight={600}>
+          GitHub
+        </Typography>
+        <Typography variant="body2" color="text.secondary" align="center">
+          Check out my code repositories
+        </Typography>
+        <Chip 
+          label="View Projects" 
+          sx={{ 
+            mt: 1,
+            bgcolor: '#61dafb15',
+            border: '1px solid #61dafb',
+            color: 'text.primary'
+          }} 
+        />
+      </Box>
+    </Card>
+  </Box>
+
+  <Typography 
+    variant="body1" 
+    sx={{ 
+      mt: 6, 
+      textAlign: 'center',
+      color: 'text.secondary',
+      maxWidth: 600
+    }}
+  >
+    I'm always interested in hearing about new opportunities and collaborations.
+    Feel free to reach out!
+  </Typography>
 </Box>
 
     </Box>
