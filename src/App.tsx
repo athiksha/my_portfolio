@@ -43,6 +43,7 @@ import {
   TimelineContent,
   TimelineDot,
 } from '@mui/lab';
+import { CssBaseline } from '@mui/material';
 
 const drawerWidth = 240;
 
