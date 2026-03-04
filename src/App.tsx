@@ -36,8 +36,6 @@ import {
   Menu as MenuIcon,
   Close as CloseIcon,
   Computer as ComputerIcon,
-  ChevronLeft as ChevronLeftIcon,
-  ChevronRight as ChevronRightIcon,
 } from '@mui/icons-material';
 import {
   Timeline,
@@ -254,7 +252,7 @@ export default function PortfolioLayout({ brand = 'Athiksha Venkannagari' }: Por
                   variant="contained"
                   color="primary"
                   size="large"
-                  href="/resume.pdf"
+                  href="/Athiksha_Venkannagari_Resume.docx"
                   target="_blank"
                   sx={{ borderRadius: '50px', px: 4 }}
                 >
